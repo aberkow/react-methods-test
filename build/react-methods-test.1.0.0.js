@@ -46,6 +46,14 @@
 
 	'use strict';
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(38);
 	
@@ -64,28 +72,63 @@
 	//   return <button onClick={props.onClick}>{props.text}</button>
 	// };
 	
-	var Surprise = React.createClass({
-	  displayName: 'Surprise',
+	// var Surprise = React.createClass({
+	//   getInitialState: function(){
+	//     return {
+	//       clicked: false
+	//     };
+	//   },
+	//   onButtonClick: function(){
+	//     this.setState({
+	//       clicked: true
+	//     });
+	//   },
+	//   render: function(){
+	//     return (
+	//       <div>
+	//         <Button onClick={this.onButtonClick} text='Ready to be amazed?' />
+	//         {this.state.clicked ? <SoundCloudEmbed trackId='191075550' /> : null}
+	//       </div>
+	//     );
+	//   }
+	// });
 	
-	  getInitialState: function getInitialState() {
-	    return {
+	var Surprise = function (_React$Component) {
+	  _inherits(Surprise, _React$Component);
+	
+	  function Surprise(props) {
+	    _classCallCheck(this, Surprise);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Surprise).call(this, props));
+	
+	    _this.state = {
 	      clicked: false
 	    };
-	  },
-	  onButtonClick: function onButtonClick() {
-	    this.setState({
-	      clicked: true
-	    });
-	  },
-	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(Button, { onClick: this.onButtonClick, text: 'Ready to be amazed?' }),
-	      this.state.clicked ? React.createElement(SoundCloudEmbed, { trackId: '191075550' }) : null
-	    );
+	    _this.onButtonClick = _this.onButtonClick.bind(_this);
+	    return _this;
 	  }
-	});
+	
+	  _createClass(Surprise, [{
+	    key: 'onButtonClick',
+	    value: function onButtonClick() {
+	      this.setState({
+	        clicked: true
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(
+	        'div',
+	        null,
+	        React.createElement(Button, { onClick: this.onButtonClick, text: 'Ready?' }),
+	        this.state.clicked ? React.createElement(SoundCloudEmbed, { trackId: '19105773' }) : null
+	      );
+	    }
+	  }]);
+	
+	  return Surprise;
+	}(React.Component);
 	
 	document.addEventListener('DOMContentLoaded', function () {
 	  ReactDOM.render(React.createElement(Surprise, null), document.getElementById('app'));
@@ -20390,15 +20433,43 @@
 
 	'use strict';
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
 	var React = __webpack_require__(1);
 	
-	var Button = function Button(props) {
-	  return React.createElement(
-	    'button',
-	    { onClick: props.onClick },
-	    props.text
-	  );
-	};
+	var Button = function (_React$Component) {
+	  _inherits(Button, _React$Component);
+	
+	  function Button() {
+	    _classCallCheck(this, Button);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Button).call(this));
+	  }
+	
+	  _createClass(Button, [{
+	    key: 'render',
+	    value: function render() {
+	      console.log(this.props, 'from button');
+	      return React.createElement(
+	        'button',
+	        { onClick: this.props.onClick },
+	        this.props.text
+	      );
+	    }
+	  }]);
+	
+	  return Button;
+	}(React.Component);
+	
+	// var Button = function(props){
+	//   return <button onClick={props.onClick}>{props.text}</button>
+	// };
 	
 	module.exports = Button;
 
@@ -20408,15 +20479,47 @@
 
 	'use strict';
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
 	var React = __webpack_require__(1);
 	
-	var SoundCloudEmbed = function SoundCloudEmbed(props) {
-	  var playerUrl = 'https://w.soundcloud.com/player/';
-	  var trackUrl = 'https://api.soundcloud.com/tracks/' + props.trackId;
-	  var options = 'auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true';
-	  var src = playerUrl + '?url=' + trackUrl + '&' + options;
-	  return React.createElement('iframe', { width: '100%', height: '450', scrolling: 'no', frameborder: 'no', src: src });
-	};
+	var SoundCloudEmbed = function (_React$Component) {
+	  _inherits(SoundCloudEmbed, _React$Component);
+	
+	  function SoundCloudEmbed() {
+	    _classCallCheck(this, SoundCloudEmbed);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SoundCloudEmbed).call(this));
+	  }
+	
+	  _createClass(SoundCloudEmbed, [{
+	    key: 'render',
+	    value: function render() {
+	      var playerUrl = 'https://w.soundcloud.com/player/';
+	      var trackUrl = 'https://api.soundcloud.com/tracks/' + this.props.trackId;
+	      var options = 'auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true';
+	      var src = playerUrl + '?url=' + trackUrl + '&' + options;
+	      console.log(this.props, 'from player');
+	      return React.createElement('iframe', { width: '100%', height: '450', scrolling: 'no', frameborder: 'no', src: src });
+	    }
+	  }]);
+	
+	  return SoundCloudEmbed;
+	}(React.Component);
+	
+	// var SoundCloudEmbed = function(props){
+	//   var playerUrl = 'https://w.soundcloud.com/player/';
+	//   var trackUrl = 'https://api.soundcloud.com/tracks/' + props.trackId;
+	//     var options = 'auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true';
+	//     var src = playerUrl + '?url=' + trackUrl + '&' + options;
+	//     return <iframe width="100%" height="450" scrolling="no" frameborder="no" src={src}></iframe>;
+	// };
 	
 	module.exports = SoundCloudEmbed;
 

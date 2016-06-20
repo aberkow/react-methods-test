@@ -16,26 +16,49 @@ var SoundCloudEmbed = require('./components/SoundCloudEmbed');
 //   return <button onClick={props.onClick}>{props.text}</button>
 // };
 
-var Surprise = React.createClass({
-  getInitialState: function(){
-    return {
+// var Surprise = React.createClass({
+//   getInitialState: function(){
+//     return {
+//       clicked: false
+//     };
+//   },
+//   onButtonClick: function(){
+//     this.setState({
+//       clicked: true
+//     });
+//   },
+//   render: function(){
+//     return (
+//       <div>
+//         <Button onClick={this.onButtonClick} text='Ready to be amazed?' />
+//         {this.state.clicked ? <SoundCloudEmbed trackId='191075550' /> : null}
+//       </div>
+//     );
+//   }
+// });
+
+class Surprise extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
       clicked: false
     };
-  },
-  onButtonClick: function(){
+    this.onButtonClick = this.onButtonClick.bind(this);
+  }
+  onButtonClick(){
     this.setState({
       clicked: true
     });
-  },
-  render: function(){
-    return (
+  }
+  render(){
+    return(
       <div>
-        <Button onClick={this.onButtonClick} text='Ready to be amazed?' />
-        {this.state.clicked ? <SoundCloudEmbed trackId='191075550' /> : null}
+        <Button onClick={this.onButtonClick} text='Ready?' />
+        {this.state.clicked ? <SoundCloudEmbed trackId='19105773' /> : null}
       </div>
     );
   }
-});
+}
 
 document.addEventListener('DOMContentLoaded', function(){
   ReactDOM.render(<Surprise />, document.getElementById('app'));
